@@ -1,5 +1,9 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { User } from '../classes/User';
+import { BadgeService } from '../../badges/services/badge.service';
+import { Badge } from '../../badges/classes/Badge';
+import { NgFor } from '@angular/common';
+
 
 @Component({
   selector: 'app-user-card',
@@ -8,6 +12,7 @@ import { User } from '../classes/User';
 })
 export class UserCardComponent {
   @Input() user: User;
+  @Input() badge: Badge;
 
   @Output() deleteClicked = new EventEmitter<number>
 
@@ -17,3 +22,4 @@ export class UserCardComponent {
     this.deleteClicked.emit(id)
   }
 }
+
